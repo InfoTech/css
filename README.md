@@ -30,7 +30,7 @@ A “rule declaration” is the name given to a selector (or a group of selector
 
 ```css
 .listing {
-  font-size: 18px;
+  font-size: 1em;
   line-height: 1.2;
 }
 ```
@@ -65,11 +65,11 @@ Finally, properties are what give the selected elements of a rule declaration th
 ### Formatting
 
 * Use soft tabs (2 spaces) for indentation
-* Prefer dashes over camelCasing in class names.
-* Do not use ID selectors
-* When using multiple selectors in a rule declaration, give each selector its own line.
+* Prefer dashes over camelCasing in class names
+* Use ID selectors sparingly (see [ID Selectors](#id-selectors))
+* When using multiple selectors in a rule declaration, put all selectors on the same line
 * Put a space before the opening brace `{` in rule declarations
-* In properties, put a space after, but not before, the `:` character.
+* In properties, put a space after, but not before, the `:` character
 * Put closing braces `}` of rule declarations on a new line
 * Put blank lines between rule declarations
 
@@ -79,7 +79,9 @@ Finally, properties are what give the selected elements of a rule declaration th
 .avatar{
     border-radius:50%;
     border:2px solid white; }
-.no, .nope, .not_good {
+.no, 
+.nope, 
+.not_good {
     // ...
 }
 #lol-no {
@@ -95,9 +97,7 @@ Finally, properties are what give the selected elements of a rule declaration th
   border: 2px solid white;
 }
 
-.one,
-.selector,
-.per-line {
+.one, .selector, .per-line {
   // ...
 }
 ```
@@ -106,21 +106,43 @@ Finally, properties are what give the selected elements of a rule declaration th
 
 * Prefer line comments (`//` in Sass-land) to block comments.
 * Prefer comments on their own line. Avoid end-of-line comments.
-* Write detailed comments for code that isn't self-documenting:
-  - Uses of z-index
+* Write detailed comments for code that isn't self-explanatory:
+  - Uses of `z-index`
   - Compatibility or browser-specific hacks
+  - Uses of `!important`
+* Use comments to denote sections of related styles/selectors
 
 ### ID selectors
 
-While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) to your rule declarations, and they are not reusable.
+While it is possible to select elements by ID in CSS, this should be done sparingly.
 
-For more on this subject, read [CSS Wizardry's article](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/) on dealing with specificity.
+* ID selectors are primarily for adding structure to your CSS
+* Can be used to wrap page-specific styles
+* Should **not** be used to apply actual styles to an element
+
+**Bad**
+
+```css
+#ugly-button {
+  // ...
+}
+```
+
+**Good**
+
+```css
+#my-page-wrapper {
+  .page-element {
+    // ...
+  }
+}
+```
 
 ### JavaScript hooks
 
 Avoid binding to the same class in both your CSS and JavaScript. Conflating the two often leads to, at a minimum, time wasted during refactoring when a developer must cross-reference each class they are changing, and at its worst, developers being afraid to make changes for fear of breaking functionality.
 
-We recommend creating JavaScript-specific classes to bind to, prefixed with `.js-`:
+We recommend creating JavaScript-specific classes to bind to, prefixed with `.js-`. Alternatively, some projects also bind JavaScript events to data selectors.
 
 ```html
 <button class="btn btn-primary js-request-to-book">Request to Book</button>
@@ -180,7 +202,43 @@ Use `0` instead of `none` to specify that a style has no border.
     }
     ```
 
-3. Nested selectors
+3. Element modifiers
+
+    Modifiers should always immediately follow the the standard property declarations.
+    
+    ```scss
+    .btn-green {
+      background: green;
+      font-weight: bold;
+      @include transition(background 0.5s ease);
+      
+      &:hover {
+        // ...
+      }
+    }
+    ```
+
+4. Media queries
+
+    Viewport-specific styling should follow, and should always be nested within the selector (see Media Queries).
+    
+    ```scss
+    .btn {
+      background: green;
+      font-weight: bold;
+      @include transition(background 0.5s ease);
+
+      &:hover {
+        // ...
+      }
+      
+      @media only screen and (min-width: $screen-sm-min) {
+        // ...
+      }
+    }
+    ```
+
+5. Nested selectors
 
     Nested selectors, _if necessary_, go last, and nothing goes after them. Add whitespace between your rule declarations and nested selectors, as well as between adjacent nested selectors. Apply the same guidelines as above to your nested selectors.
 
@@ -189,6 +247,14 @@ Use `0` instead of `none` to specify that a style has no border.
       background: green;
       font-weight: bold;
       @include transition(background 0.5s ease);
+
+      &:hover {
+        // ...
+      }
+      
+      @media only screen and (min-width: $screen-sm-min) {
+        // ...
+      }
 
       .icon {
         margin-right: 10px;
