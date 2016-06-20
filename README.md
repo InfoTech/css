@@ -142,10 +142,21 @@ While it is possible to select elements by ID in CSS, this should be done sparin
 
 Avoid binding to the same class in both your CSS and JavaScript. Conflating the two often leads to, at a minimum, time wasted during refactoring when a developer must cross-reference each class they are changing, and at its worst, developers being afraid to make changes for fear of breaking functionality.
 
-We recommend creating JavaScript-specific classes to bind to, prefixed with `.js-`. Alternatively, some projects also bind JavaScript events to data selectors.
+We recommend creating JavaScript-specific classes to bind to, prefixed with `.js-`. Alternatively, sometimes it makes more sense to bind JavaScript events to data selectors. Here are examples of both.
 
 ```html
 <button class="btn btn-primary js-request-to-book">Request to Book</button>
+
+<div data-chart data-chart-type="pie" data-chart-series="[1, 2, 3, 4]"></div>
+```
+```javascript
+$(document).on('click', '.js-request-to-book', function() {
+  // ...
+};
+
+$('[data-chart]').each(function() {
+  // ...
+});
 ```
 
 ### Border
