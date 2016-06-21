@@ -14,7 +14,7 @@
     - [ID Selectors](#id-selectors)
     - [JavaScript hooks](#javascript-hooks)
     - [Border](#border)
-    - [Media Queries](#media-queries)
+    - [Media queries](#media-queries)
   1. [Sass](#sass)
     - [Syntax](#syntax)
     - [Ordering](#ordering-of-property-declarations)
@@ -183,7 +183,7 @@ Use `none` instead of `0` to specify that a style has no border.
 }
 ```
 
-### Media Queries
+### Media queries
 
 * Nest media queries within selectors, rather than around them
 * Order media queries from small screen sizes to large
@@ -266,7 +266,7 @@ Use `none` instead of `0` to specify that a style has no border.
 
 4. Media queries
 
-    Viewport-specific styling should follow, and should always be nested within the selector (see [Media Queries](#media-queries)).
+    Viewport-specific styling should follow, and should always be nested within the selector (see [Media queries](#media-queries)).
     
     ```scss
     .btn {
