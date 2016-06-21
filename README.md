@@ -356,7 +356,7 @@ If you must use an ID selector in the first place (and you should really try not
 
 Most projects have a file a single colours file which defines all globally used colours as Sass variables. When writing styles, you should always use the variables rather than the HEX values.
 
-**White and black are the two exceptions that have no variables. The text literals (`white` and `black`) should be used instead.**
+White and black are the two exceptions that have no variables. The text literals (`white` and `black`) should be used instead.
 ```scss
 .foo {
   border: black;
