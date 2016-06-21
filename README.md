@@ -161,13 +161,13 @@ $('[data-chart]').each(function() {
 
 ### Border
 
-Use `0` instead of `none` to specify that a style has no border.
+Use `none` instead of `0` to specify that a style has no border.
 
 **Bad**
 
 ```css
 .foo {
-  border: none;
+  border: 0;
 }
 ```
 
@@ -175,7 +175,7 @@ Use `0` instead of `none` to specify that a style has no border.
 
 ```css
 .foo {
-  border: 0;
+  border: none;
 }
 ```
 
@@ -184,7 +184,7 @@ Use `0` instead of `none` to specify that a style has no border.
 ### Syntax
 
 * Use the `.scss` syntax, never the original `.sass` syntax
-* Order your regular CSS and `@include` declarations logically (see below)
+* Order your regular CSS, modifiers, `@include` declarations, and media queries logically (see below)
 
 ### Ordering of property declarations
 
@@ -215,7 +215,7 @@ Use `0` instead of `none` to specify that a style has no border.
 
 3. Element modifiers
 
-    Modifiers should always immediately follow the the standard property declarations.
+    Modifiers should always immediately follow the the standard property declarations and `@includes`s.
     
     ```scss
     .btn-green {
@@ -290,7 +290,7 @@ Mixins should be used to DRY up your code, add clarity, or abstract complexity--
 **Do not nest selectors more than three levels deep!**
 
 ```scss
-.page-container {
+#page-container {
   .content {
     .profile {
       // STOP!
