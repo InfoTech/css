@@ -370,7 +370,7 @@ White and black are the two exceptions that have no variables. The text literals
 
 ### Colour variants
 
-Colour variants should be grouped logically, and ordered from light to dark. Within the colours file, colours should be listed alphabetically. For a given colour, there should be a lighter, light, regular, dark, and darker variation. If additional variants are needed beyond these five, a new variable/colour name should be used.
+Colour variants should be grouped logically, and ordered from light to dark. Within the colours file, colours should be listed alphabetically. For a given colour, there should be a lighter, light, regular, dark, and darker variant. If additional variants are needed beyond these five, a new variable/colour name should be used.
 
 ```scss
 // Blue
