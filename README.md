@@ -14,6 +14,7 @@
     - [ID Selectors](#id-selectors)
     - [JavaScript hooks](#javascript-hooks)
     - [Border](#border)
+    - [Media Queries](#media-queries)
   1. [Sass](#sass)
     - [Syntax](#syntax)
     - [Ordering](#ordering-of-property-declarations)
@@ -179,6 +180,34 @@ Use `none` instead of `0` to specify that a style has no border.
 }
 ```
 
+### Media Queries
+
+* Nest media queries within selectors, rather than around them
+* Order media queries from small screen sizes to large
+
+**Bad**
+
+```css
+@media only screen and (min-width: $screen-sm-min) {
+  .foo {
+    // ...
+  }
+}
+```
+
+**Good**
+
+```css
+.foo {
+  @media only screen and (min-width: $screen-sm-min) {
+    // ...
+  }
+  @media only screen and (min-width: $screen-lg-min) {
+    // ...
+  }
+}
+```
+
 ## Sass
 
 ### Syntax
@@ -231,7 +260,7 @@ Use `none` instead of `0` to specify that a style has no border.
 
 4. Media queries
 
-    Viewport-specific styling should follow, and should always be nested within the selector (see Media Queries).
+    Viewport-specific styling should follow, and should always be nested within the selector (see [Media Queries](#media-queries)).
     
     ```scss
     .btn {
