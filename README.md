@@ -187,8 +187,8 @@ Use `none` instead of `0` to specify that a style has no border.
 
 **Bad**
 
-```css
-@media only screen and (min-width: $screen-sm-min) {
+```scss
+@media only screen and (max-width: $screen-sm-min) {
   .foo {
     // ...
   }
@@ -197,12 +197,12 @@ Use `none` instead of `0` to specify that a style has no border.
 
 **Good**
 
-```css
+```scss
 .foo {
-  @media only screen and (min-width: $screen-sm-min) {
+  @media only screen and (max-width: $screen-sm-max) {
     // ...
   }
-  @media only screen and (min-width: $screen-lg-min) {
+  @media only screen and (max-width: $screen-md-max) {
     // ...
   }
 }
