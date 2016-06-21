@@ -119,6 +119,14 @@ Finally, properties are what give the selected elements of a rule declaration th
   - Uses of `!important`
 * Use comments to denote sections of related styles/selectors
 
+**Exception:** When writing font sizes in `em`s, you should use an inline comment to denote the corresponding `px` value.
+```scss
+.element {
+  font-size: 1em; // 20px
+}
+```
+
+
 ### Organization
 
 All related styles (i.e. for a particular page or section) should live within a single file and be ordered logically (according to how the front-end of the page is displayed). If it improves clarity and readability, it is acceptable to break things out into multiple files and use folders.
