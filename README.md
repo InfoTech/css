@@ -356,7 +356,7 @@ Use `none` instead of `0` to specify that a style has no border.
 
 ### Variables
 
-* Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names.
+* Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names
 * Variables should be listed at the top of the file
 
 ### Mixins
