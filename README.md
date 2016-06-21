@@ -11,6 +11,8 @@
   1. [CSS](#css)
     - [Formatting](#formatting)
     - [Comments](#comments)
+    - [Organization](#organization)
+    - [Selectors](#selectors)
     - [ID Selectors](#id-selectors)
     - [JavaScript hooks](#javascript-hooks)
     - [Border](#border)
@@ -76,6 +78,7 @@ Finally, properties are what give the selected elements of a rule declaration th
 * In properties, put a space after, but not before, the `:` character
 * Put closing braces `}` of rule declarations on a new line
 * Put blank lines between rule declarations
+* Use single quotes
 
 **Bad**
 
@@ -115,6 +118,41 @@ Finally, properties are what give the selected elements of a rule declaration th
   - Compatibility or browser-specific hacks
   - Uses of `!important`
 * Use comments to denote sections of related styles/selectors
+
+### Organization
+
+All related styles (i.e. for a particular page or section) should live within a single file and be ordered logically (according to how the front-end of the page is displayed). If it improves clarity and readability, it is acceptable to break things out into multiple files and use folders.
+
+```scss
+@import 'reviews/profiles';
+@import 'reviews/comments';
+
+.reviews {
+  // ...
+}
+```
+
+### Selectors
+
+Unless defining a global style, you should avoid styling elements by their name/type (`div`, `section`, etc.). Instead, you should use classes to apply style. Additionally, you should avoid coupling element and class selectors, as they are redundant and unecessary.
+
+**Bad**
+```scss
+section.big {
+ div {
+   // ...
+ }
+}
+```
+
+**Good**
+```scss
+.big {
+  .class-on-div {
+    // ...
+  }
+}
+```
 
 ### ID selectors
 
