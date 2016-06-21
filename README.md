@@ -12,7 +12,7 @@
     - [Formatting](#formatting)
     - [Comments](#comments)
     - [Organization](#organization)
-    - [Selectors](#selectors)
+    - [Class selectors](#class-selectors)
     - [ID Selectors](#id-selectors)
     - [JavaScript hooks](#javascript-hooks)
     - [Border](#border)
@@ -132,7 +132,7 @@ All related styles (i.e. for a particular page or section) should live within a 
 }
 ```
 
-### Selectors
+### Class Selectors
 
 Unless defining a global style, you should avoid styling elements by their name/type (`div`, `section`, etc.). Instead, you should use classes to apply style. Additionally, you should avoid coupling element and class selectors, as they are redundant and unecessary.
 
