@@ -134,7 +134,7 @@ All related styles (i.e. for a particular page or section) should live within a 
 
 ### Class Selectors
 
-Unless defining a global style, you should avoid styling elements by their name/type (`div`, `section`, etc.). Instead, you should use classes to apply styled. Additionally, you should avoid coupling element and class selectors, as this is redundant and unecessary.
+Unless defining a global style, you should avoid styling elements by their name/type (`div`, `section`, etc.). Instead, you should use classes to apply styled. Additionally, you should avoid coupling element and class selectors, as this is often redundant and unecessary.
 
 **Bad**
 ```scss
