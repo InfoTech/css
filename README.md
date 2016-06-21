@@ -22,6 +22,9 @@
     - [Mixins](#mixins)
     - [Extend directive](#extend-directive)
     - [Nested selectors](#nested-selectors)
+  1. [Colours](#colors)
+    - [Global colours](#global-colours)
+    - [Colour variants](#colour-variants)
 
 ## Terminology
 
@@ -307,11 +310,17 @@ Use `none` instead of `0` to specify that a style has no border.
 
 ### Variables
 
-Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_my-variable`).
+* Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names.
+* Variables should be listed at the top of the file
 
 ### Mixins
 
-Mixins should be used to DRY up your code, add clarity, or abstract complexity--in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
+Mixins should be used to DRY up your code, add clarity, or abstract complexity--in much the same way as well-named functions. They should be listed after variables within a Sass file. Each project has a standard set of mixins, which can be referenced below.
+
+_Coming soon:_
+* infotech.com mixins
+* DDR mixins
+* Software reviews mixins
 
 ### Extend directive
 
@@ -337,7 +346,44 @@ When selectors become this long, you're likely writing CSS that is:
 * Overly specific (powerful) *—OR—*
 * Not reusable
 
-
 Again: **never nest ID selectors!**
 
 If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you are writing well formed HTML and CSS, you should **never** need to do this.
+
+## Colours
+
+### Global colours
+
+Most projects have a file a single colours file which defines all globally used colours as Sass variables. When writing styles, you should always use the variables rather than the HEX values.
+
+**White and black are the two exceptions, they have no variables, use `white` and `black` respectively**
+```scss
+.foo {
+  border: black;
+  background: white;
+}
+.foo-two {
+  border: $green;
+  background: $orange;
+}
+```
+
+### Colour variants
+
+Colour variants should be grouped logically, and ordered from light to dark. Within the colours file, colours should be listed alphabetically. For a given colour, there should be a lighter, light, regular, dark, and darker variation. If additional variants are needed beyond these five, a new variable/colour name should be used.
+
+```scss
+// Blue
+$blue-lighter: #7CADD4;
+$blue-light: #5191C5;
+$blue: #2576B7;
+$blue-dark: #1E5E92;
+$blue-darker: #16476E;
+
+// Info-Tech Blue
+$infotech-blue-lighter: #7F919F;
+$infotech-blue-light: #546C7F;
+$infotech-blue: #29475F;
+$infotech-blue-dark: #21394C;
+$infotech-blue-darker: #192B39;
+```
