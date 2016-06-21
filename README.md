@@ -22,7 +22,7 @@
     - [Mixins](#mixins)
     - [Extend directive](#extend-directive)
     - [Nested selectors](#nested-selectors)
-  1. [Colours](#colors)
+  1. [Colours](#colours)
     - [Global colours](#global-colours)
     - [Colour variants](#colour-variants)
 
