@@ -188,7 +188,12 @@ Use `none` instead of `0` to specify that a style has no border.
 **Bad**
 
 ```scss
-@media only screen and (max-width: $screen-sm-min) {
+@media only screen and (max-width: $screen-sm-max) {
+  .foo {
+    // ...
+  }
+}
+@media only screen and (max-width: $screen-md-max) {
   .foo {
     // ...
   }
