@@ -79,13 +79,15 @@ Finally, properties are what give the selected elements of a rule declaration th
 * Put closing braces `}` of rule declarations on a new line
 * Put blank lines between rule declarations
 * Use single quotes
+* Font sizes should be written in `em`, to 3 decimal places (when decimals are needed)
+* Line heights should be written without units
 
 **Bad**
 
-```css
+```scss
 .avatar{
-    border-radius:50%;
-    border:2px solid white; }
+    font-size:20px;
+    line-height:30px; }
 .no, 
 .nope, 
 .not_good {
@@ -98,10 +100,10 @@ Finally, properties are what give the selected elements of a rule declaration th
 
 **Good**
 
-```css
+```scss
 .avatar {
-  border-radius: 50%;
-  border: 2px solid white;
+  font-size: 1em; // 22px
+  line-height: 1.5;
 }
 
 .one, .selector, .per-line {
