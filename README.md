@@ -129,13 +129,19 @@ Finally, properties are what give the selected elements of a rule declaration th
 
 ### Organization
 
-All related styles (i.e. for a particular page or section) should live within a single file and be ordered logically (according to how the front-end of the page is displayed). If it improves clarity and readability, it is acceptable to break things out into multiple files and use folders.
+All related styles (i.e. for a particular page or section) should live within a single file and be ordered logically (according to how the front-end of the page is displayed). If it improves clarity and readability, your team/project may choose to break things out into multiple files and use folders.
 
 ```scss
 @import 'reviews/profiles';
 @import 'reviews/comments';
 
-.reviews {
+.header {
+  // ...
+}
+.content {
+  // ...
+}
+.footer {
   // ...
 }
 ```
