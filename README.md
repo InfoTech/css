@@ -121,10 +121,10 @@ Finally, properties are what give the selected elements of a rule declaration th
   - Uses of `!important`
 * Use comments to denote sections of related styles/selectors
 
-**Exception:** When writing font sizes in `em`s, you should use an inline comment to denote the corresponding `px` value.
+**Exception:** When writing font sizes in `em`, you should use an inline comment to denote the corresponding `px` value.
 ```scss
 .element {
-  font-size: 1em; // 20px
+  font-size: 1em; // 16px
 }
 ```
 
